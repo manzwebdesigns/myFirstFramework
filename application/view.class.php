@@ -20,7 +20,6 @@ class View
     }
 
     public function output(){
-        require_once($this->model->template);
-        $this->twig->render('base.html.twig', array('data' =>  $this->model->tstring));
+        return $this->twig->render('base.html.twig', array('data' =>  $this->model->tstring));
     }
 }
