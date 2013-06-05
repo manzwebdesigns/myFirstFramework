@@ -13,6 +13,6 @@ class Model
 
     public function __construct(){
         $this->tstring = "The string has been loaded through the template.";
-        $this->template = "tpl/base.template.twig";
+        $this->template = "tpl/base.html.twig";
     }
 }
