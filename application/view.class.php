@@ -13,13 +13,18 @@ class View
     private $controller;
     private $twig;
 
-    public function __construct($controller, $model, $twig) {
+    public function __construct($controller, $model, $twig)
+    {
         $this->controller = $controller;
         $this->model = $model;
         $this->twig = $twig;
     }
 
-    public function output(){
-        return $this->twig->render('base.html.twig', array('data' =>  $this->model->tstring));
+    public function output()
+    {
+        return $this->twig->render('home.html.twig', array('heading' => $this->model->heading,
+                                                           'navigation' => $this->model->nav,
+                                                           'content' => $this->model->content
+                                                        ));
     }
 }

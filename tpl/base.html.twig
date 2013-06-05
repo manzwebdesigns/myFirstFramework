@@ -2,12 +2,20 @@
 <html>
 <head>
     <meta charset="charset=utf-8">
-    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="/assets/css/style.css"/>
     <title>My Webpage</title>
 </head>
 <body>
-<h1>{{ data }}</h1>
+<ul id="navigation">
+    {% for item in navigation %}
+        <li><a href="{{ item.href }}">{{ item.caption }}</a></li>
+    {% endfor %}
+</ul>
+<h1>{{ heading }}</h1>
 <section>
+    {% block content %}
+        Content of the page...
+    {% endblock %}
 </section>
 </body>
 </html>

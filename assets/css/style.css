@@ -1,5 +1,12 @@
 html {
+    font-size: 100%;
+}
+
+body{
     background-color: chocolate;
     color: beige;
-    font-size: 14px;
+    font-size: 1em;
+    font-family: georgia, serif;
+    padding: 0;
+    margin: 0;
 }

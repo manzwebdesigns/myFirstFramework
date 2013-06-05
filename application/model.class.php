@@ -9,10 +9,18 @@
 
 class Model
 {
-    public $tstring;
+    public $heading;
+    public $nav;
+    public $content;
 
-    public function __construct(){
-        $this->tstring = "The string has been loaded through the template.";
-        $this->template = "tpl/base.html.twig";
+    public function __construct()
+    {
+        $this->heading = "Welcome to Bud's first MVC Framework Site!";
+        $this->nav = array(
+            array('href' => 'index.php', 'caption' => 'Home'),
+            array('href' => 'about.php', 'caption' => 'About'),
+            array('href' => 'contact.php', 'caption' => 'Contact',
+            ));
+        $this->content = 'My new message';
     }
 }
