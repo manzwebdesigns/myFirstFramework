@@ -11,11 +11,14 @@ class Model
 {
     public $heading;
     public $nav;
+    public $script;
     public $content;
 
     public function __construct()
     {
         $this->heading = "Welcome to Bud's first MVC Framework Site!";
+        $dir = glob(__APP_PATH. "/assets/js/*.js");
+        $this->script = str_replace(__APP_PATH, '', $dir);
         $this->nav = array(
             array('href' => 'index.php', 'caption' => 'Home'),
             array('href' => 'about.php', 'caption' => 'About'),

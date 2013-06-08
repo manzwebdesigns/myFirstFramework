@@ -4,6 +4,11 @@
     <meta charset="charset=utf-8">
     <link rel="stylesheet" href="/assets/css/style.css"/>
     <title>My Webpage</title>
+    {% block javascript %}
+        {% for js in script %}
+            <script src="{{ js }}"></script>
+        {% endfor %}
+    {% endblock %}
 </head>
 <body>
 <ul id="navigation">
