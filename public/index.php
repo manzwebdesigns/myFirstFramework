@@ -11,8 +11,8 @@
  error_reporting(E_ALL);
 
  /* define the site path constant */
- $app_path = realpath(dirname(__FILE__));
+ $app_path = realpath(dirname(__FILE__)). '/../';
  define ('__APP_PATH', $app_path);
 
  /* include the app.php file */
- include 'includes/app.php';
+ include __APP_PATH . 'includes/app.php';

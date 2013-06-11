@@ -17,12 +17,11 @@ class Model
     public function __construct()
     {
         $this->heading = "Welcome to Bud's first MVC Framework Site!";
-        $dir = glob(__APP_PATH. "/assets/js/*.js");
-        $this->script = str_replace(__APP_PATH, '', $dir);
+        $this->script = glob("assets/js/*.js");
         $this->nav = array(
-            array('href' => 'index.php', 'caption' => 'Home'),
-            array('href' => 'about.php', 'caption' => 'About'),
-            array('href' => 'contact.php', 'caption' => 'Contact',
+            array('href' => '/', 'caption' => 'Home'),
+            array('href' => 'about', 'caption' => 'About'),
+            array('href' => 'contact', 'caption' => 'Contact',
             ));
         $this->content = 'My new message';
     }
