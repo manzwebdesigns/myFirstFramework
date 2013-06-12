@@ -39,7 +39,7 @@ $model = new Model();
 $controller = new Controller($model);
 $loader = new Twig_Loader_Filesystem(__APP_PATH . '/tpl');
 $twig = new Twig_Environment($loader, array(
-    'cache' => __APP_PATH . '/tpl/cache',
+  //  'cache' => __APP_PATH . '/tpl/cache',
 ));
 $view = new View($controller, $model, $twig);
 echo $view->output();

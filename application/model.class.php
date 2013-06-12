@@ -12,17 +12,30 @@ class Model
     public $heading;
     public $nav;
     public $script;
+    public $css;
     public $content;
 
     public function __construct()
     {
+        // Set the index page heading
         $this->heading = "Welcome to Bud's first MVC Framework Site!";
-        $this->script = glob("assets/js/*.js");
+
+        // Create an array of all the javascript files in the js folder
+        $jsdir = glob(__DOC_ROOT . "assets/js/*.js");
+        $this->script = str_replace(__DOC_ROOT, '', $jsdir);
+
+        // Create an array of all the css stylesheet files in the css folder
+        $cssdir = glob(__DOC_ROOT . "assets/css/*.css");
+        $this->css = str_replace(__DOC_ROOT, '', $cssdir);
+
+        // Create the navigation link array
         $this->nav = array(
             array('href' => '/', 'caption' => 'Home'),
             array('href' => 'about', 'caption' => 'About'),
             array('href' => 'contact', 'caption' => 'Contact',
             ));
-        $this->content = 'My new message';
+
+        // Default homepage main content
+        $this->content = 'My main content';
     }
 }

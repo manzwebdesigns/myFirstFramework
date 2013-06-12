@@ -2,7 +2,11 @@
 <html>
 <head>
     <meta charset="charset=utf-8">
-    <link rel="stylesheet" href="assets/css/style.css"/>
+    {% block stylesheets %}
+        {% for style in css %}
+            <link rel="stylesheet" href="{{ style }}"/>
+        {% endfor %}
+    {% endblock %}
     <title>My Webpage</title>
 </head>
 <body>

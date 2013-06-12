@@ -25,6 +25,7 @@ class View
         return $this->twig->render('home.html.twig', array('heading' => $this->model->heading,
                                                            'navigation' => $this->model->nav,
                                                            'script' => $this->model->script,
+                                                           'css' => $this->model->css,
                                                            'content' => $this->model->content
                                                         ));
     }
