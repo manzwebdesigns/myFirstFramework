@@ -66,8 +66,37 @@ class Request {
         if(is_null($default)) {
             $default = $this->getMethod();
         }
-        $this->postparm = $name;
-        return $this->postparm;
+
+        if(isset($_POST[$name])) {
+            $name = $_POST[$name];
+        } else {
+            $name = $default;
+        }
+
+        return $name;
+    }
+
+    /**
+     * Retrieves the GET parameter. IF the parameter doesn't exist,
+     * then default will be returned.
+     *
+     * @param string $name Name of parameter to retrieve
+     * @param mixed  $default
+     *
+     * @return mixed
+     */
+    public function getGetParam($name, $default = null)
+    {
+        if(is_null($default)) {
+            $default = $this->getMethod();
+        }
+
+        if(isset($_GET[$name])) {
+            $name = $_GET[$name];
+        } else {
+            $name = $default;
+        }
+        return $name;
     }
 
     /**
@@ -99,15 +128,6 @@ class Request {
     public function getParams()
     {
         return array($this->getparm, $this->postparm);
-    }
-
-    public function getGetParam($name, $default = null)
-    {
-        if(is_null($default)) {
-            $default = $this->getMethod();
-        }
-        $this->getparm = $name;
-        return $this->getparm;
     }
 
     public function getMethod()
