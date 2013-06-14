@@ -46,10 +46,11 @@ class Request {
            $default = $this->getMethod();
         }
 
-        if(!in_array($name, $this->getParams())) {
-            $name = $default;
+        $retval = $default;
+        if(in_array($name, $this->getParams())) {
+            $retval = $name;
         }
-        return $name;
+        return $retval;
     }
 
     /**
@@ -67,13 +68,12 @@ class Request {
             $default = $this->getMethod();
         }
 
+        $retval = $default;
         if(isset($_POST[$name])) {
-            $name = $_POST[$name];
-        } else {
-            $name = $default;
+            $retval = $_POST[$name];
         }
 
-        return $name;
+        return $retval;
     }
 
     /**
@@ -91,12 +91,11 @@ class Request {
             $default = $this->getMethod();
         }
 
+        $retval = $default;
         if(isset($_GET[$name])) {
-            $name = $_GET[$name];
-        } else {
-            $name = $default;
+            $retval = $_GET[$name];
         }
-        return $name;
+        return $retval;
     }
 
     /**
