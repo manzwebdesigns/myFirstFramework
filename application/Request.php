@@ -50,6 +50,7 @@ class Request {
         if(in_array($name, $this->getParams())) {
             $retval = $name;
         }
+
         return $retval;
     }
 
@@ -95,6 +96,7 @@ class Request {
         if(isset($_GET[$name])) {
             $retval = $_GET[$name];
         }
+
         return $retval;
     }
 
@@ -109,6 +111,16 @@ class Request {
     }
 
     /**
+     * Sets the Host Name
+     *
+     * @param $name
+     */
+    public function setHostname($name)
+    {
+        $this->hostname = $name;
+    }
+
+    /**
      * Retrieve the URI result
      *
      * @return mixed
@@ -116,6 +128,16 @@ class Request {
     public function getUri()
     {
         return $this->uri;
+    }
+
+    /**
+     * Sets the URI
+     *
+     * @param $name
+     */
+    public function setUri($name)
+    {
+        $this->uri = $name;
     }
 
     /**
@@ -129,8 +151,23 @@ class Request {
         return array($this->getparm, $this->postparm);
     }
 
+    /**
+     * Retrieves the request method
+     *
+     * @return mixed
+     */
     public function getMethod()
     {
         return $this->method;
+    }
+
+    /**
+     * Sets the request method
+     *
+     * @param $name
+     */
+    public function setMethod($name)
+    {
+        $this->method = $name;
     }
 }
