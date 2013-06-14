@@ -8,16 +8,21 @@
  */
 
 /* include the model class */
-include __APP_PATH . '/application/model.class.php';
+include __APP_PATH . 'application/model.class.php';
 
 /* include the view class */
-include __APP_PATH . '/application/view.class.php';
+include __APP_PATH . 'application/view.class.php';
 
 /* include the controller class */
-include __APP_PATH . '/application/controller.class.php';
+include __APP_PATH . 'application/controller.class.php';
 
 /* include the route class */
-include __APP_PATH . '/application/route.class.php';
+include __APP_PATH . 'application/route.class.php';
+
+/* include the Request class */
+include __APP_PATH . 'application/Request.php';
+$request  = new Request();
+var_dump($request);
 
 /* include the twig templating engine */
 include __APP_PATH . '/twig/twig/lib/Twig/Autoloader.php';
