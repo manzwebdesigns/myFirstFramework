@@ -42,13 +42,10 @@ class Request {
      */
     public function getParam($name, $default = null)
     {
-        if(is_null($default)) {
-           $default = $this->getMethod();
-        }
-
-        $retval = $default;
         if(in_array($name, $this->getParams())) {
             $retval = $name;
+        } else {
+            $retval = $default;
         }
 
         return $retval;
@@ -65,13 +62,10 @@ class Request {
      */
     public function getPostParam($name, $default = null)
     {
-        if(is_null($default)) {
-            $default = $this->getMethod();
-        }
-
-        $retval = $default;
         if(isset($_POST[$name])) {
             $retval = $_POST[$name];
+        } else {
+            $retval = $default;
         }
 
         return $retval;
@@ -88,13 +82,10 @@ class Request {
      */
     public function getGetParam($name, $default = null)
     {
-        if(is_null($default)) {
-            $default = $this->getMethod();
-        }
-
-        $retval = $default;
         if(isset($_GET[$name])) {
             $retval = $_GET[$name];
+        } else {
+            $retval = $default;
         }
 
         return $retval;
