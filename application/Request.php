@@ -82,7 +82,7 @@ class Request {
      */
     public function getGetParam($name, $default = null)
     {
-        if(isset($_GET[$name])) {
+        if(isset($this->getparm[$name])) {
             $retval = $_GET[$name];
         } else {
             $retval = $default;
@@ -139,7 +139,7 @@ class Request {
      */
     public function getParams()
     {
-        return array($this->getparm, $this->postparm);
+        return array_merge($this->getparm, $this->postparm);
     }
 
     /**
