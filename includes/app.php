@@ -6,6 +6,11 @@
  * Time: 7:44 PM
  * To change this template use File | Settings | File Templates.
  */
+namespace MWD;
+
+use Twig_Autoloader;
+use Twig_Environment;
+use Twig_Loader_Filesystem;
 
 /* include the model class */
 include __APP_PATH . 'application/model.class.php';
@@ -22,7 +27,7 @@ include __APP_PATH . 'application/route.class.php';
 /* include the Request class */
 include __APP_PATH . 'application/Request.php';
 $request  = new Request();
-var_dump($request);
+// var_dump($request);
 
 /* include the twig templating engine */
 include __APP_PATH . '/twig/twig/lib/Twig/Autoloader.php';
@@ -31,8 +36,8 @@ Twig_Autoloader::register();
 /* auto load model classes */
 function __autoload($class_name)
 {
-    $filename = strtolower($class_name) . '.class.php';
-    $file = __APP_PATH . '/model/' . $filename;
+    $filename = ($class_name) . '.php';
+    $file = __APP_PATH . '/src/' . $filename;
 
     if (file_exists($file)) {
         include($file);
@@ -47,4 +52,4 @@ $twig = new Twig_Environment($loader, array(
   //  'cache' => __APP_PATH . '/tpl/cache',
 ));
 $view = new View($controller, $model, $twig);
-echo $view->output();
+echo $view->output($request->getUri());

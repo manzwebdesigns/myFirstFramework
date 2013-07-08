@@ -6,6 +6,7 @@
  * Time: 1:16 AM
  * To change this template use File | Settings | File Templates.
  */
+namespace MWD;
 
 /**
  *
@@ -20,14 +21,14 @@ class Request {
     protected $method;
 
     /**
-     * Load values from $_GET, $_POST, $_SERVER as needed into the protected values above
+     * Load values from $_GET, $_POST, $_SERVER as needed into the protected variables above
      */
     public function __construct()
     {
         $this->getparm = $_GET;
         $this->postparm = $_POST;
         $this->hostname = $_SERVER['HTTP_HOST'];
-        $this->uri = $_SERVER['REQUEST_URI'];
+        $this->uri = substr($_SERVER['REQUEST_URI'], 1);
         $this->method = $_SERVER['REQUEST_METHOD'];
     }
 
@@ -62,8 +63,8 @@ class Request {
      */
     public function getPostParam($name, $default = null)
     {
-        if(isset($_POST[$name])) {
-            $retval = $_POST[$name];
+        if(isset($this->postparm[$name])) {
+            $retval = $this->postparm[$name];
         } else {
             $retval = $default;
         }
@@ -83,7 +84,7 @@ class Request {
     public function getGetParam($name, $default = null)
     {
         if(isset($this->getparm[$name])) {
-            $retval = $_GET[$name];
+            $retval = $this->getparm[$name];
         } else {
             $retval = $default;
         }

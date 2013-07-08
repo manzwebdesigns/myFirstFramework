@@ -6,12 +6,14 @@
  * Time: 7:52 PM
  * To change this template use File | Settings | File Templates.
  */
+namespace MWD;
 
 class View
 {
     private $model;
     private $controller;
     private $twig;
+    private $contentPage;
 
     public function __construct($controller, $model, $twig)
     {
@@ -20,13 +22,15 @@ class View
         $this->twig = $twig;
     }
 
-    public function output()
+    public function output($page = 'home')
     {
-        return $this->twig->render('home.html.twig', array('heading' => $this->model->heading,
+        $this->contentPage = $this->twig->render($page . '.html.twig',
+                                                     array('heading' => $this->model->heading,
                                                            'navigation' => $this->model->nav,
                                                            'script' => $this->model->script,
                                                            'css' => $this->model->css,
                                                            'content' => $this->model->content
                                                         ));
+        return $this->contentPage;
     }
 }

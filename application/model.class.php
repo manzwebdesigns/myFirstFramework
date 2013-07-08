@@ -6,6 +6,7 @@
  * Time: 8:21 PM
  * To change this template use File | Settings | File Templates.
  */
+namespace MWD;
 
 class Model
 {
