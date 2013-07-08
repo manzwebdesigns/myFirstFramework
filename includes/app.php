@@ -52,4 +52,9 @@ $twig = new Twig_Environment($loader, array(
   //  'cache' => __APP_PATH . '/tpl/cache',
 ));
 $view = new View($controller, $model, $twig);
-echo $view->output($request->getUri());
+$uri = $request->getUri();
+if(empty($uri)) {
+    echo $view->output();
+} else {
+    echo $view->output($uri);
+}
