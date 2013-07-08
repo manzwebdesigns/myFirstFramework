@@ -8,6 +8,8 @@
  */
 namespace MWD;
 
+use MWD\Request as Request;
+
 class Model
 {
     public $heading;
@@ -15,9 +17,14 @@ class Model
     public $script;
     public $css;
     public $content;
+    public $request;
 
     public function __construct()
     {
+        // create new Request object for routing purposes
+        $this->request = new Request();
+        $uri = $this->request->getUri();
+
         // Set the index page heading
         $this->heading = "Welcome to Bud's first MVC Framework Site!";
 
@@ -31,12 +38,27 @@ class Model
 
         // Create the navigation link array
         $this->nav = array(
-            array('href' => '/', 'caption' => 'Home'),
-            array('href' => 'about', 'caption' => 'About'),
-            array('href' => 'contact', 'caption' => 'Contact',
+            array('href' => '/', 'class' => 'nav_links', 'caption' => 'Home'),
+            array('href' => 'about', 'class' => 'nav_links', 'caption' => 'About'),
+            array('href' => 'contact', 'class' => 'nav_links', 'caption' => 'Contact',
             ));
 
-        // Default homepage main content
-        $this->content = 'My main content';
+        foreach($this->nav as $key => $val) {
+            if($val['href'] == $uri) {
+                $val['class'] .= ' active';
+                $this->nav[$key] = $val;
+            }
+        }
+
+        switch ($uri) {
+            case 'contact':
+                $this->content = 'My contact us content goes here...';
+                break;
+            case 'about' :
+                $this->content = 'My about us content goes here...';
+                break;
+            default: // Default homepage main content
+                $this->content = 'My main homepage content goes here...';
+        }
     }
 }
