@@ -44,9 +44,10 @@ class Model
             ));
 
         foreach($this->nav as $key => $val) {
-            if($val['href'] == $uri) {
+            if($val['href'] == $uri || !$uri) {
                 $val['class'] .= ' active';
                 $this->nav[$key] = $val;
+                break;
             }
         }
 

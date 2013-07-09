@@ -1,0 +1,24 @@
+
+#contentWrapper {
+    max-width: 1024px;
+    margin: 0 auto;
+}
+
+#navigation {
+    list-style-type: none;
+    display: inline-block;
+}
+
+#navigation li {
+    float: left;
+    padding: 0 6px;
+}
+
+#navigation a {
+    text-decoration: none;
+}
+
+#navigation a.active {
+    text-decoration: underline;
+    font-weight: bold;
+}

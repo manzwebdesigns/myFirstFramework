@@ -11,16 +11,23 @@
     <title>My Webpage</title>
 </head>
 <body>
-    <ul id="navigation">
-        {% for item in navigation %}
-            <li><a href="{{ item.href }}" class="{{ item.class }}">{{ item.caption }}</a></li>
-        {% endfor %}
-    </ul>
-    <h1>{{ heading }}</h1>
-    <section>
-        {% block content %}
-            Content of the page...
-        {% endblock %}
+    <section id="contentWrapper">
+        <a href="/">
+            <header id="head">
+                <h1>This is my header!</h1>
+            </header>
+        </a>
+        <nav id="navigation">
+            {% for item in navigation %}
+                <li><a href="{{ item.href }}" class="{{ item.class }}">{{ item.caption }}</a></li>
+            {% endfor %}
+        </nav>
+        <h2>{{ heading }}</h2>
+        <section>
+            {% block content %}
+                Content of the page...
+            {% endblock %}
+        </section>
     </section>
             <script src="http://code.jquery.com/jquery.js"></script>
 {% block javascript %}
